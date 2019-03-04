@@ -153,6 +153,7 @@ src/triples/TriplesList.hpp\
 src/util/fdstream.hpp\
 src/util/fileUtil.hpp\
 src/util/StopWatch.hpp\
+src/util/stringutil.hpp\
 src/util/unicode.hpp\
 third/fdstream.hpp
 
