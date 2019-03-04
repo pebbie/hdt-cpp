@@ -29,6 +29,7 @@
 
 #include <HDTSpecification.hpp>
 #include "../util/propertyutil.h"
+#include "../util/stringutil.hpp"
 
 namespace hdt {
 
@@ -51,8 +52,8 @@ void HDTSpecification::setOptions(const std::string& options) {
 		size_t pos = singleOption.find(':');
 
 		if(pos!=std::string::npos) {
-			std::string property = singleOption.substr(0, pos);
-			std::string value = singleOption.substr(pos+1);
+			std::string property = trim(singleOption.substr(0, pos));
+			std::string value = trim(singleOption.substr(pos+1));
 			//std::cout << "Property= "<< property << "\tValue= " << value << std::endl;
 			map[property] = value;
 		}

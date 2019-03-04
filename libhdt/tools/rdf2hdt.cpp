@@ -54,12 +54,22 @@ void help() {
     cout << "\t-h\t\t\tThis help" << endl;
     cout << "\t-i\t\t\tAlso generate index to solve all triple patterns." << endl;
     cout << "\t-c\t<configfile>\tHDT Config options file" << endl;
-    cout << "\t-o\t<options>\tHDT Additional options (option1=value1;option2=value2;...)" << endl;
+    cout << "\t-o\t<options>\tHDT Additional options (option1:value1;option2:value2;...)" << endl;
     cout << "\t-f\t<format>\tFormat of the RDF input (nquads,nq,ntriples,nt,trig,turtle,ttl)" << endl;
     cout << "\t-B\t\"<base URI>\"\tBase URI of the dataset." << endl;
     cout << "\t-V\tPrints the HDT version number." << endl;
     cout << "\t-p\tPrints a progress indicator." << endl;
     cout << "\t-v\tVerbose output" << endl;
+    cout << endl <<"\toptions:"<< endl;
+    cout << "dictionary.type : " << endl;
+    cout << "\tdictionary.type:<http://purl.org/HDT/hdt#dictionaryFour>\tFour section dictionary (default)" << endl;
+    cout << "\tdictionary.type:<http://purl.org/HDT/hdt#dictionaryPlain>\tPlain dictionary" << endl;
+    cout << "\tdictionary.type:<http://purl.org/HDT/hdt#dictionaryLiteral>\tLiteral dictionary" << endl;
+    cout << "triples.type : " << endl;
+    cout << "\ttriples.type:<http://purl.org/HDT/hdt#triplesBitmap>\tBitmap Triples (default)" << endl;
+    cout << "\ttriples.type:<http://purl.org/HDT/hdt#triplesPlain>\tPlain Triples" << endl;
+    cout << "\ttriples.type:<http://purl.org/HDT/hdt#triplesList>\tList Triples" << endl;
+    cout << "\ttriples.type:<http://purl.org/HDT/hdt#triplesListDisk>\tList Disk Triples" << endl;
 }
 
 int main(int argc, char **argv) {

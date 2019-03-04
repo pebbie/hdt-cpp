@@ -97,6 +97,7 @@ set(hdt_LIB_SRCS
     src/util/Histogram.h
     src/util/lru_cache.h
     src/util/mygetopt.h
+    src/util/stringutil.hpp
     src/util/propertyutil.h
     third/gzstream.h
     src/dictionary/FourSectionDictionary.hpp

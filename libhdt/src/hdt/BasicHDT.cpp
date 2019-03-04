@@ -99,42 +99,55 @@ void BasicHDT::createComponents() {
 	std::string dictType = "";
 	try{
 		dictType = spec.get("dictionary.type");
+		cout << "[INFO] option dictionary.type=" << dictType << endl;
 	}
 	catch (std::exception& e){
+		cout << "[INFO] option dictionary.type NOT SET" << endl;
 	}
 
 	if(dictType==HDTVocabulary::DICTIONARY_TYPE_FOUR) {
 		dictionary = new FourSectionDictionary(spec);
+		cout << "[INFO] using FourSectionDictionary" << endl;
 	} else if(dictType==HDTVocabulary::DICTIONARY_TYPE_PLAIN) {
 		dictionary = new PlainDictionary(spec);
+		cout << "[INFO] using PlainDictionary" << endl;	
 	} else if(dictType==HDTVocabulary::DICTIONARY_TYPE_LITERAL) {
 #ifdef HAVE_CDS
 		dictionary = new LiteralDictionary(spec);
+		cout << "[INFO] using LiteralDictionary" << endl;	
 #else
 		throw std::runtime_error("This version has been compiled without support for this dictionary");
 #endif
 	} else {
 		dictionary = new FourSectionDictionary(spec);
+		cout << "[INFO] falling back to FourSectionDictionary" << endl;	
 	}
 
 	// TRIPLES
 	std::string triplesType = "";
 	try{
 		triplesType = spec.get("triples.type");
+		cout << "[INFO] option triples.type=" << triplesType << endl;
 	}catch (std::exception& e) {
+		cout << "[INFO] option triples.type NOT SET" << endl;	
 	}
 	if(triplesType==HDTVocabulary::TRIPLES_TYPE_BITMAP) {
 		triples = new BitmapTriples(spec);
+		cout << "[INFO] using BitmapTriples" << endl;
 	} else if(triplesType==HDTVocabulary::TRIPLES_TYPE_PLAIN) {
 		triples = new PlainTriples(spec);
+		cout << "[INFO] using PlainTriples" << endl;
 	} else if(triplesType==HDTVocabulary::TRIPLES_TYPE_TRIPLESLIST) {
                 triples = new TriplesList(spec);
+                cout << "[INFO] using TriplesList" << endl;
 #ifndef WIN32
     } else if (triplesType == HDTVocabulary::TRIPLES_TYPE_TRIPLESLISTDISK) {
 		triples = new TripleListDisk();
+		cout << "[INFO] using TriplesListDisk" << endl;
 #endif
 	} else {
 		triples = new BitmapTriples(spec);
+		cout << "[INFO] falling back to using BitmapTriples" << endl;
 	}
 }
 
