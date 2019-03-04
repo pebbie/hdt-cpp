@@ -35,7 +35,12 @@
 #include <HDTManager.hpp>
 #include <signal.h>
 
-#include <getopt.h>
+#ifdef WIN32
+    #include <mygetopt.h>
+#else
+    #include <getopt.h>
+#endif
+
 #include <string.h>
 #include <string>
 #include <cstdint>

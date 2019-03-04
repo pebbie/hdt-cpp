@@ -34,7 +34,12 @@
 #include <HDTManager.hpp>
 
 #include <string>
-#include <getopt.h>
+#ifdef WIN32
+    #include <mygetopt.h>
+#else
+    #include <getopt.h>
+#endif
+
 #include <iostream>
 #include <fstream>
 

@@ -1,4 +1,9 @@
-#include <getopt.h>
+#ifdef WIN32
+    #include <mygetopt.h>
+#else
+    #include <getopt.h>
+#endif
+
 #include <exception>
 #include <iostream>
 #include <string>

@@ -43,7 +43,8 @@ namespace cds_static
 		MMAP *m;
         m = (MMAP*) malloc(sizeof(*m));
 		if (m==NULL) {perror("mymmap malloc");  exit(1);}
-        fd = CreateFile( (WCHAR*) fname,GENERIC_READ,0,NULL,OPEN_EXISTING, FILE_ATTRIBUTE_NORMAL,NULL);
+        //fd = CreateFile( (WCHAR*) fname,GENERIC_READ,0,NULL,OPEN_EXISTING, FILE_ATTRIBUTE_NORMAL,NULL);
+        fd = CreateFile( fname,GENERIC_READ,0,NULL,OPEN_EXISTING, FILE_ATTRIBUTE_NORMAL,NULL);
 		if (fd==INVALID_HANDLE_VALUE) {
 			printf("createfile\n");
 			exit(1);

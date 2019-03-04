@@ -26,10 +26,10 @@
 #ifndef WIN32
 #include <sys/resource.h>
 #include <sys/times.h>
+#include <unistd.h>
 #endif
 #include <stdio.h>
 #include <stdlib.h>
-#include <unistd.h>
 #include <sys/stat.h>
 #include <iostream>
 #include <fstream>
@@ -39,6 +39,7 @@
 #include <sstream>
 #include <cassert>
 #include <stdint.h>
+#include <algorithm>
 
 #ifdef WIN32
 typedef unsigned int uint;

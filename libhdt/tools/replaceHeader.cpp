@@ -15,7 +15,12 @@
 #include <string>
 #include <iostream>
 #include <fstream>
-#include <getopt.h>
+#ifdef WIN32
+    #include <mygetopt.h>
+#else
+    #include <getopt.h>
+#endif
+
 
 #include "../src/dictionary/LiteralDictionary.hpp"
 #include "../src/dictionary/FourSectionDictionary.hpp"

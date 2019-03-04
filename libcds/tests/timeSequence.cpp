@@ -30,6 +30,11 @@
 #include<cassert>
 #include<cmath>
 #include<set>
+#ifdef WIN32
+    #include <mygetopt.h>
+#else
+    #include <getopt.h>
+#endif
 
 #include<Sequence.h>
 #include<Array.h>

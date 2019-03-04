@@ -9,6 +9,7 @@
 using namespace std;
 using namespace cds_static;
 
+#define MAXV 1024
 
 void testSequence(Array & a, Sequence & bs) {
     ofstream outfs("sequence.tmp");
@@ -18,7 +19,7 @@ void testSequence(Array & a, Sequence & bs) {
     Sequence * seq = Sequence::load(infs);
     infs.close();
     uint maxv = a.getMax();
-    size_t count[maxv+1];
+    size_t count[MAXV+1];
     for(size_t i=0;i<=maxv;i++)
         count[i] = 0;
     for(size_t i=0;i<a.getLength();i++) {

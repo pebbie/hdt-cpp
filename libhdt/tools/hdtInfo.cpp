@@ -36,7 +36,12 @@
 
 #include "../src/rdf/RDFSerializerNTriples.hpp"
 #include <stdexcept>
-#include <getopt.h>
+#ifdef WIN32
+    #include <mygetopt.h>
+#else
+    #include <getopt.h>
+#endif
+
 #include <string>
 #include <iostream>
 #include <fstream>

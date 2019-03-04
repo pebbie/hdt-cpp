@@ -11,6 +11,31 @@
 #include <stdint.h>
 #include <iostream>
 
+#ifdef _MSC_VER
+	#include <intrin.h>
+#ifdef _WIN64
+	#pragma intrinsic(_BitScanForward64)
+
+	inline unsigned long __vs_ffs(unsigned __int64 x){
+	unsigned long idx=0;
+	return _BitScanForward64(&idx, x)?1+idx:0;
+	}
+
+	#define __builtin_popcount __popcnt64
+	#define __builtin_ffs __vs_ffs
+#else
+	#pragma intrinsic(_BitScanForward)
+
+	inline unsigned long __vs_ffs(unsigned __int64 x){
+	unsigned long idx=0;
+	return _BitScanForward(&idx, x)?1+idx:0;
+	}
+
+	#define __builtin_popcount __popcnt
+	#define __builtin_ffs __lzcnt
+#endif
+#endif
+
 namespace hdt {
 
 extern const unsigned char popcount_tab[256];

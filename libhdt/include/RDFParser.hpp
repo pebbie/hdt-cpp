@@ -76,13 +76,13 @@ public:
 
 class ParseException: public exception {
 protected:
-    uint64_t byte;
+    uint64_t _byte;
     uint64_t line;
     uint32_t column;
     string reason;
 public:
-    ParseException(uint64_t byte, uint64_t line, uint32_t column, string reason) :
-        byte(byte),
+    ParseException(uint64_t __byte, uint64_t line, uint32_t column, string reason) :
+        _byte(__byte),
         line(line),
         column(column),
         reason(reason) {  }

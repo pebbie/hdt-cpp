@@ -68,7 +68,11 @@ FileMap::FileMap(const char *fileName) : fd(0), ptr(NULL) {
 #endif
 
     // Open file
+#ifdef UNICODE
     fd = CreateFile( (WCHAR*)fileNameString.c_str(), GENERIC_READ, FILE_SHARE_READ, NULL, OPEN_EXISTING, FILE_ATTRIBUTE_NORMAL,NULL);
+#else
+    fd = CreateFile( fileNameString.c_str(), GENERIC_READ, FILE_SHARE_READ, NULL, OPEN_EXISTING, FILE_ATTRIBUTE_NORMAL,NULL);
+#endif
     if (fd==INVALID_HANDLE_VALUE) {
         throw std::runtime_error("Error creating file for mapping.");
     }
